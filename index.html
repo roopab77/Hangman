@@ -14,10 +14,31 @@
   <script type="text/javascript">
 
   // 1. set array with words (objects) and properties to pick from (photos, sound, etc)
+
+    var words = ['kaytranada','hotelier','american football','restorations', 'a tribe called quest', 'rufus du sol'];
+
   // 2. set variables (wins, losses, guesses left, letters picked)
+    var wins = 0;
+    var losses = 0;
+    var wordArray = [];
+    var lettersGuessed = [];
+    var guessesLeft = 15;
+    var display = document.querySelector('#game');
+  
   // 3. computer picks word from array
+    var wordPicked = words[Math.floor(Math.random() * words.length)];
+      
+   // create reset function to set guesses left and letters guessed each round
+    function reset() {
+      guessesLeft = 15;
+      lettersGuessed = [];
+    }
   // 4. letters of word picked from array get pushed into a new array in lowercase
-  // 5. create reset function to set guesses left and letters guessed each round
+    for (var i = 0; i < wordPicked.length; i++) {
+      console.log(wordPicked[i]);
+      wordArray.push(wordPicked[i]);
+    }
+ 
   // 6. create function to display results
   // 7. display blank spaces for word
   // 8. user picks a letter and converts it to lowercase
