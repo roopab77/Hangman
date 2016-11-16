@@ -23,7 +23,10 @@
     var wordArray = [];
     var lettersGuessed = [];
     var guessesLeft = 15;
-    var display = document.querySelector('#game');
+    
+    // set variables for display items
+    var lettersGuessedClass = document.querySelector('.lettersGuessed');
+    var wordPickedClass = document.querySelector('.wordPickedClass');
   
   // 3. computer picks word from array
     var wordPicked = words[Math.floor(Math.random() * words.length)];
