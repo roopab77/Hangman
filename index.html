@@ -3,15 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <title>Hang, man.</title>
-</head>
+
+  <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+ --></head>
 <body>
 <div style="text-align: center;">
 <h1>Hangman</h1>
-
-<div id="placeholder" style="font-size: 1.5em; font-family: monotype; color: red; letter-spacing: 3px">-------</div>
+<div class="jumbotron">
+<div id="placeholder" style="font-size: 1.8em; font-family: monotype; color: red; letter-spacing: 5px"></div>
 <br/>
 <div>Guessed Letters</div>
 <div id="lettersGuessedSpace">(guessed letters will go here)</div>
+<div><button id="button" class="btn-lg btn btn-blue">Restart Game</button></div>
+</div>
   <script type="text/javascript">
 
     // DECLARE VARIABLES NEEDED FOR GAME
@@ -44,13 +52,13 @@
     // WORKING ON AUTOMATIC SPACEBAR PRESS
     // key = String.fromCharCode(32);
 
-      document.getElementById("placeholder").innerHTML = placeholder;
-      document.getElementById("lettersGuessedSpace").innerHTML = lettersGuessed;
+      document.querySelector("#placeholder").innerHTML = placeholder;
+      document.querySelector("#lettersGuessedSpace").innerHTML = lettersGuessed;
     }
 
   // INITIALIZE GAME
   newGame();
-  
+ 
   // LOG KEYSTROKE TO BEGIN LOGIC CHECK
   document.onkeyup = function(event){
     key = event.key;
@@ -60,14 +68,14 @@
       if (key == word.substring(i, i + 1)) {
         correct++;
         placeholder = placeholder.substring(0, i) + key + placeholder.substring(i + 1, placeholder.length + 1);
-        document.getElementById("placeholder").innerHTML = placeholder;
+        document.querySelector("#placeholder").innerHTML = placeholder;
       }
     }
 
     if (correct == 0) {
       goesLeft--;
       lettersGuessed.push(key);
-      document.getElementById("lettersGuessedSpace").innerHTML = lettersGuessed;
+      document.querySelector("#lettersGuessedSpace").innerHTML = lettersGuessed;
     }
 
     if (placeholder == word) {
@@ -82,6 +90,7 @@
 
   }
 
+  document.querySelector("#button").addEventListener("click", newGame);
 
   </script>
 </body>
