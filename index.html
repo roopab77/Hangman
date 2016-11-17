@@ -5,54 +5,76 @@
   <title>Hang, man.</title>
 </head>
 <body>
-<h2>A little game of Hangman.</h2>
-<h3>Press any key to start.</h3>
-  <div id="game">
-  
+<div style="text-align: center;">
+<h1>Hangman</h1>
 
-  </div>
+<div id="placeholder" style="font-size: 1.5em; font-family: monotype; color: red; letter-spacing: 3px">-------</div>
+<br/>
+<div>Guessed Letters</div>
+<div id="guessedletters">(guessed letters will go here)</div>
   <script type="text/javascript">
+    var wordsArray = ['kaytranada','hotelier','american football','restorations', 'a tribe called quest', 'rufus du sol'];
+var word;
+var goesLeft;
+var placeholder;
+var input;
+var wordLength;
+var wordSubstring;
+var currentWord;
+var key;
 
-  // 1. set array with words (objects) and properties to pick from (photos, sound, etc)
-
-    var words = ['kaytranada','hotelier','american football','restorations', 'a tribe called quest', 'rufus du sol'];
-
-  // 2. set variables (wins, losses, guesses left, letters picked)
-    var wins = 0;
-    var losses = 0;
-    var wordArray = [];
-    var lettersGuessed = [];
-    var guessesLeft = 15;
+  function newGame()
+  {
+    placeholder = "";
+    goesLeft = 10;
+    word = wordsArray[Math.floor(Math.random() * wordsArray.length)];
+    console.log(word);
+    wordLength = word.length;
+    wordSubstring = word.substring;
     
-    // set variables for display items
-    var lettersGuessedClass = document.querySelector('.lettersGuessed');
-    var wordPickedClass = document.querySelector('.wordPickedClass');
-  
-  // 3. computer picks word from array
-    var wordPicked = words[Math.floor(Math.random() * words.length)];
+    for (var i = 0; i < word.length; i++) {
+      placeholder = placeholder + "_";
+    }
+
+    document.getElementById("placeholder").innerHTML = placeholder;
+  }
+
+
+  document.onkeyup = function(event){
+    key = event.key;
+    var correct = 0;
+
+    for (var i = 0; i < wordLength; i++)
+    {
+      if (key == word.substring(i, i + 1))
+      {
+         
+        correct++;
+        placeholder = placeholder.substring(0, i) + key + placeholder.substring(i + 1, placeholder.length + 1);
+        document.getElementById("placeholder").innerHTML = placeholder;
+      }
+    }
+
+    if (correct == 0)
+    {
+      goesLeft--;
+    }
+    // var url = document.getElementById("hangimage").src = "http://fetlar.kingston.ac.uk/pp/hangman" + goesLeft + ".jpg";
+
+    if (placeholder == word)
+    {
       
-   // create reset function to set guesses left and letters guessed each round
-    function reset() {
-      guessesLeft = 15;
-      lettersGuessed = [];
+      alert("You guessed the word correctly. You win!");
+      newGame();
     }
-  // 4. letters of word picked from array get pushed into a new array in lowercase
-    for (var i = 0; i < wordPicked.length; i++) {
-      console.log(wordPicked[i]);
-      wordArray.push(wordPicked[i]);
+
+    if (goesLeft == 0)
+    {
+      alert("You lose");
+      newGame();
     }
- 
-  // 6. create function to display results
-  // 7. display blank spaces for word
-  // 8. user picks a letter and converts it to lowercase
-  // 9. if letter is part of the word, fill in blank space in game. else list it in the "guessed" section and remove a turn
-  // 10. continue 9 until no guesses are left or every space is filled
-
-
-
-
+  }
+newGame();
   </script>
-
-
 </body>
 </html>
