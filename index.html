@@ -11,70 +11,78 @@
 <div id="placeholder" style="font-size: 1.5em; font-family: monotype; color: red; letter-spacing: 3px">-------</div>
 <br/>
 <div>Guessed Letters</div>
-<div id="guessedletters">(guessed letters will go here)</div>
+<div id="lettersGuessedSpace">(guessed letters will go here)</div>
   <script type="text/javascript">
-    var wordsArray = ['kaytranada','hotelier','american football','restorations', 'a tribe called quest', 'rufus du sol'];
-var word;
-var goesLeft;
-var placeholder;
-var input;
-var wordLength;
-var wordSubstring;
-var currentWord;
-var key;
 
-  function newGame()
-  {
-    placeholder = "";
-    goesLeft = 10;
-    word = wordsArray[Math.floor(Math.random() * wordsArray.length)];
-    console.log(word);
-    wordLength = word.length;
-    wordSubstring = word.substring;
+    // DECLARE VARIABLES NEEDED FOR GAME
+    var wordsArray = ['kaytranada','hotelier','american football','restorations', 'a tribe called quest', 'rufus du sol'];
+    var word;
+    var lettersGuessed;
+    var goesLeft;
+    var placeholder;
+    var input;
+    var wordLength;
+    var wordSubstring;
+    var currentWord;
+    var key;
+
+    // CREATE FUNCTION TO INITIALIZE NEW GAME
+    function newGame() {
+      placeholder = "";
+      goesLeft = 10;
+      lettersGuessed = [];
+      word = wordsArray[Math.floor(Math.random() * wordsArray.length)];
+    
+      // REMOVE BEFORE FINALIZING
+      console.log(word);
+      wordLength = word.length;
+      wordSubstring = word.substring;
     
     for (var i = 0; i < word.length; i++) {
       placeholder = placeholder + "_";
     }
+    // WORKING ON AUTOMATIC SPACEBAR PRESS
+    // key = String.fromCharCode(32);
 
-    document.getElementById("placeholder").innerHTML = placeholder;
-  }
+      document.getElementById("placeholder").innerHTML = placeholder;
+      document.getElementById("lettersGuessedSpace").innerHTML = lettersGuessed;
+    }
 
-
+  // INITIALIZE GAME
+  newGame();
+  
+  // LOG KEYSTROKE TO BEGIN LOGIC CHECK
   document.onkeyup = function(event){
     key = event.key;
     var correct = 0;
 
-    for (var i = 0; i < wordLength; i++)
-    {
-      if (key == word.substring(i, i + 1))
-      {
-         
+    for (var i = 0; i < wordLength; i++) {
+      if (key == word.substring(i, i + 1)) {
         correct++;
         placeholder = placeholder.substring(0, i) + key + placeholder.substring(i + 1, placeholder.length + 1);
         document.getElementById("placeholder").innerHTML = placeholder;
       }
     }
 
-    if (correct == 0)
-    {
+    if (correct == 0) {
       goesLeft--;
+      lettersGuessed.push(key);
+      document.getElementById("lettersGuessedSpace").innerHTML = lettersGuessed;
     }
-    // var url = document.getElementById("hangimage").src = "http://fetlar.kingston.ac.uk/pp/hangman" + goesLeft + ".jpg";
 
-    if (placeholder == word)
-    {
-      
+    if (placeholder == word) {
       alert("You guessed the word correctly. You win!");
       newGame();
     }
 
-    if (goesLeft == 0)
-    {
+    if (goesLeft == 0) {
       alert("You lose");
       newGame();
     }
+
   }
-newGame();
+
+
   </script>
 </body>
 </html>
