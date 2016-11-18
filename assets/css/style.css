@@ -12,6 +12,10 @@ a {
   color: #D2474D;
 }
 
+.btn,p {
+  font-weight: 600;
+}
+
 h1,h2,h3,h4,h5,h6 {
   font-family: 'Patua One', cursive;
 }
@@ -29,10 +33,12 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 .panel-default {
-  border: none;
+  border: 2px solid #D2474D;
   box-shadow: none;
   -webkit-box-shadow: none;
-  background-color: rgba(255,255,255,0.4);
+  border-radius: 50px;
+  background-color: rgba(255,255,255,0.7);
+
 }
 
 .panel-default>.panel-heading {
@@ -40,6 +46,8 @@ h1,h2,h3,h4,h5,h6 {
   color: #fff7da;
   font-family: 'Patua One', cursive;
   font-size: 25px;
+  border-top-left-radius: 44px;
+  border-top-right-radius: 44px;
 }
 
 .left p {
