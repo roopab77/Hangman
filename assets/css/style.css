@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css?family=Patua+One');
+@import url('https://fonts.googleapis.com/css?family=Raleway:300,400,600');
+
+body {
+  font-family: 'Raleway', sans-serif;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  font-family: 'Patua One', cursive;
+}
+
+.jumbotron h1 span {
+  border-bottom: 2px solid #3a3a3a;
+  padding-bottom: 10px;
+}
+
+#placeholder {
+  font-family: 'Patua One', cursive;
+  letter-spacing: 5px;
+  font-size: 20px;
+}
+
+#youtube iframe {
+  width: 100%;
+}

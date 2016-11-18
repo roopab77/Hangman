@@ -6,6 +6,7 @@
 
   <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="assets/css/style.css">
 
 <!-- Latest compiled and minified JavaScript -->
 <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
@@ -15,7 +16,7 @@
 
 
   <div class="jumbotron text-center">
-    <h1>Alex's Musical Hangman Journey</h1>
+    <h1><span>Alex's Musical Hangman Journey</span></h1>
     
     <h3 id="message"></h3>    
     
@@ -26,9 +27,14 @@
   <div class="row">
     <div class="col-xs-12 col-md-6 col-sm-6 text-center">
       <div class="panel panel-default">
-      <div class="panel-heading">Music Happens Here.</div>
+      <div class="panel-heading">Good Tunes Happen Here.</div>
       <div class="panel-body">
-        I consume a lot of new music each year, definitely more than the average human. So a few years ago I decided to log these 
+        <p>I consume a lot of new music each year, definitely more than the average human. So a few years ago I decided to log these tracks into a playlist aptly titled "Kranzjams". Win or lose, you'll get to hear some of these tracks below after you play a round.</p>
+        
+        <div id="name"></div><br/>
+        <div id="youtube"> </div>
+        
+
 
       </div>    
       </div>
@@ -43,7 +49,7 @@
         <h4 class="winsLosses">Wins: <span id="wins"></span><br/>Losses: <span id="losses"></span><br/>Guesses Left: <span id="guessesLeft"></h4>
 
 
-        <div id="placeholder" style="font-size: 1.8em; font-family: monotype; color: red; letter-spacing: 5px"></div>
+        <div id="placeholder"></div>
         <br/>
         <div>Guessed Letters</div>
         <div id="lettersGuessedSpace">(guessed letters will go here)</div>
@@ -52,6 +58,9 @@
       </div>
     </div>
 
+  </div>
+  <div class="row footer text-center">
+    This is an <a href="http://alexrosenkranz.com" target="_blank">Alex Rosenkranz</a> Production.
   </div>
 </div>
 
