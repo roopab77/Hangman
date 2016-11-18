@@ -3,23 +3,60 @@
 
 body {
   font-family: 'Raleway', sans-serif;
+  background: #FFF7DA;
+  color: #3a3a3a;
+}
+
+a {
+  color: #D2474D;
 }
 
 h1,h2,h3,h4,h5,h6 {
   font-family: 'Patua One', cursive;
+}
+.jumbotron {
+  color: #FFF7DA;
+  background-color: #D2474D;
 }
 
 .jumbotron h1 span {
   border-bottom: 2px solid #3a3a3a;
   padding-bottom: 10px;
 }
+.jumbotron h1 {
+  margin-bottom: 30px;
+}
+
+.panel-default>.panel-heading {
+  background-color: #D2474D;
+  color: #fff7da;
+  font-family: 'Patua One', cursive;
+  font-size: 25px;
+}
+
+.left p {
+  font-size: 19px;
+}
 
 #placeholder {
   font-family: 'Patua One', cursive;
+  text-transform: uppercase;
   letter-spacing: 5px;
-  font-size: 20px;
+  color: #5DCFA6;
+  font-size: 25px;
+  padding: 15px 5px;
+  margin: 10px 0;
+  border: 1px dotted #5DCFA6;
+}
+
+#name {
+  font-variant: small-caps;
+  font-family: 'Patua One', cursive;
+  font-size: 25px;
+
 }
 
 #youtube iframe {
   width: 100%;
 }
+

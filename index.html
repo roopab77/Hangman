@@ -18,18 +18,20 @@
   <div class="jumbotron text-center">
     <h1><span>Alex's Musical Hangman Journey</span></h1>
     
-    <h3 id="message"></h3>    
-    
+    <h3 id="message"></h3>   
+    <button id="button" class="btn-lg btn btn-default">New Game</button>
+
   </div>
 
 
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-md-6 col-sm-6 text-center">
-      <div class="panel panel-default">
+      <div class="panel panel-default left">
       <div class="panel-heading">Good Tunes Happen Here.</div>
       <div class="panel-body">
-        <p>I consume a lot of new music each year, definitely more than the average human. So a few years ago I decided to log these tracks into a playlist aptly titled "Kranzjams". Win or lose, you'll get to hear some of these tracks below after you play a round.</p>
+        <p>I consume a lot of new music each year, definitely more than the average human. So a few years ago I decided to log these tracks into a playlist aptly titled "Kranzjams".</p> 
+        <p>Win or lose, you'll get to hear some of these tracks below after you play a round.</p>
         
         <div id="name"></div><br/>
         <div id="youtube"> </div>
@@ -46,24 +48,26 @@
       <div class="panel-heading">Game Happens Here.</div>
     
       <div class="panel-body">
-        <h4 class="winsLosses">Wins: <span id="wins"></span><br/>Losses: <span id="losses"></span><br/>Guesses Left: <span id="guessesLeft"></h4>
+        <h4 class="winsLosses">Wins: <span id="wins"></span> || Losses: <span id="losses"></span></h4>
 
 
         <div id="placeholder"></div>
-        <br/>
-        <div>Guessed Letters</div>
-        <div id="lettersGuessedSpace">(guessed letters will go here)</div>
-        <button id="button" class="btn-lg btn btn-blue">Restart Game</button>
+     
+        <h4>Guesses Left: <span id="guessesLeft"></span></h4>
+        
+        <h4>Guessed Letters</h4>
+        <div id="lettersGuessedSpace"></div>
       </div>
       </div>
     </div>
 
   </div>
   <div class="row footer text-center">
-    This is an <a href="http://alexrosenkranz.com" target="_blank">Alex Rosenkranz</a> Production.
+    This is an <a href="http://alexrosenkranz.com" target="_blank">Alex Rosenkranz</a> Production.<br/>
+    <span class="small"><sup>*</sup>No people were actually hung during this game. 
   </div>
 </div>
 
-<script src="assets/js/hangman.js"></script>
+<script type="text/javascript" src="assets/js/hangman.js"></script>
 </body>
 </html>

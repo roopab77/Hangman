@@ -34,28 +34,25 @@
       pickedArtist = artists.splice(randomArtist, 1);
       word =  pickedArtist[0].name;
       youtube = pickedArtist[0].youtube;
-      console.log(word); 
-      // word = wordsArray[Math.floor(Math.random() * wordsArray.length)];
-
       wordLength = word.length;
       wordSubstring = word.substring;
     
-    // ENTERS UNDERSCORES FOR LETTERS AND PREPOPULATES BLANK SPACES
-    for (var i = 0; i < word.length; i++) {
-      if (word.substring(i, i + 1) === " "){
-        placeholder =  placeholder + " ";
+      // ENTERS UNDERSCORES FOR LETTERS AND PREPOPULATES BLANK SPACES
+      for (var i = 0; i < word.length; i++) {
+        if (word.substring(i, i + 1) === " "){
+          placeholder =  placeholder + " ";
+        }
+        else {
+          placeholder = placeholder + "_";
+        }
       }
-      else {
-        placeholder = placeholder + "_";
-      }
-     
-    }
 
+      // SETS INITIAL CONTENT ON PAGE
       document.querySelector("#placeholder").innerHTML = placeholder;
       document.querySelector("#lettersGuessedSpace").innerHTML = lettersGuessed;
       document.querySelector("#wins").innerHTML = wins;
       document.querySelector("#losses").innerHTML = losses;
-      document.querySelector("#message").innerHTML = "Try and guess who my favorite artists were this year.<br/> Press any key to get started!";
+      document.querySelector("#message").innerHTML = "Try and guess who my favorite artists are this year.<br/> Press any key to get started!";
       document.querySelector("#guessesLeft").innerHTML = goesLeft;
 
     }
@@ -67,8 +64,8 @@
   document.onkeyup = function(event){
     key = event.key;
 
-    
-    document.querySelector("#message").innerHTML = "Try and guess who my favorite artists were this year.<br/> Good luck!";
+
+    document.querySelector("#message").innerHTML = "Try and guess who my favorite artists are this year.<br/> Good luck!";
 
     // SET VARIABLE TO CHECK IF YOU LOSE A TURN UPON INCORRECT GUESS
     var correct = 0;
@@ -93,20 +90,20 @@
     // WHEN YOU WIN
     if (placeholder == word) {
       wins++;
-      document.querySelector("#message").innerHTML = "You win! You must have good music taste.<br/>Click the Restart Game button to play again!";
+      document.querySelector("#message").innerHTML = "You win! You must have good music taste.<br/>Click the New Game button to play again!";
 
       document.querySelector("#wins").innerHTML = wins;
       
-      document.querySelector("#name").innerHTML = "Artist Name<br/>" + word;
+      document.querySelector("#name").innerHTML = "ANSWER: " + word;
       
       document.querySelector("#youtube").innerHTML = '<iframe height="315" src="'+ youtube +'"" frameborder="0" allowfullscreen></iframe>';
       
     }
     // WHEN YOU LOSE
-    if (goesLeft == 0) {
+    if (goesLeft <= 0) {
       losses++;
       
-      document.querySelector("#message").innerHTML = "Tough break, but you should check out the music anyway.<br/>Click the Restart Game button to play again!";
+      document.querySelector("#message").innerHTML = "Tough break, but you should check out the music anyway.<br/>Click the New Game button to play again!";
       
       document.querySelector("#losses").innerHTML = losses;
     }
