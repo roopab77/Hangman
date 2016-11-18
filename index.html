@@ -13,15 +13,45 @@
  </head>
 <body>
 
-<div class="container">
-  <div class="jumbotron">
-    <h1>Hangman</h1>
+
+  <div class="jumbotron text-center">
+    <h1>Alex's Musical Hangman Journey</h1>
     
-    <div id="placeholder" style="font-size: 1.8em; font-family: monotype; color: red; letter-spacing: 5px"></div>
-    <br/>
-    <div>Guessed Letters</div>
-    <div id="lettersGuessedSpace">(guessed letters will go here)</div>
-    <div><button id="button" class="btn-lg btn btn-blue">Restart Game</button></div>
+    <h3 id="message"></h3>    
+    
+  </div>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-6 col-sm-6 text-center">
+      <div class="panel panel-default">
+      <div class="panel-heading">Music Happens Here.</div>
+      <div class="panel-body">
+        I consume a lot of new music each year, definitely more than the average human. So a few years ago I decided to log these 
+
+      </div>    
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-md-6 col-sm-6 text-center">
+      
+      <div class="panel panel-default">
+      <div class="panel-heading">Game Happens Here.</div>
+    
+      <div class="panel-body">
+        <h4 class="winsLosses">Wins: <span id="wins"></span><br/>Losses: <span id="losses"></span><br/>Guesses Left: <span id="guessesLeft"></h4>
+
+
+        <div id="placeholder" style="font-size: 1.8em; font-family: monotype; color: red; letter-spacing: 5px"></div>
+        <br/>
+        <div>Guessed Letters</div>
+        <div id="lettersGuessedSpace">(guessed letters will go here)</div>
+        <button id="button" class="btn-lg btn btn-blue">Restart Game</button>
+      </div>
+      </div>
+    </div>
+
   </div>
 </div>
 

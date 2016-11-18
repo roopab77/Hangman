@@ -4,6 +4,7 @@
     var wordsArray = ['kaytranada','hotelier','american football','restorations', 'a tribe called quest', 'rufus du sol'];
     var word;
     var wins = 0;
+    var losses = 0;
     var lettersGuessed;
     var goesLeft;
     var placeholder;
@@ -19,25 +20,28 @@
       goesLeft = 10;
       lettersGuessed = [];
       word = wordsArray[Math.floor(Math.random() * wordsArray.length)];
-    
-      // REMOVE BEFORE FINALIZING
-      console.log(word);
+
       wordLength = word.length;
       wordSubstring = word.substring;
     
+    // ENTERS UNDERSCORES FOR LETTERS
     for (var i = 0; i < word.length; i++) {
       if (word.substring(i, i + 1) === " "){
         placeholder =  placeholder + " ";
-      };
-      placeholder = placeholder + "_";
-      
+      }
+      else {
+        placeholder = placeholder + "_";
+      }
      
     }
-    // WORKING ON AUTOMATIC SPACEBAR PRESS
-    // key = String.fromCharCode(32);
 
       document.querySelector("#placeholder").innerHTML = placeholder;
       document.querySelector("#lettersGuessedSpace").innerHTML = lettersGuessed;
+      document.querySelector("#wins").innerHTML = wins;
+      document.querySelector("#losses").innerHTML = losses;
+      document.querySelector("#message").innerHTML = "Try and guess who my favorite artists were this year.<br/> Press any key to get started!";
+      document.querySelector("#guessesLeft").innerHTML = goesLeft;
+
     }
 
   // INITIALIZE GAME
@@ -46,6 +50,7 @@
   // LOG KEYSTROKE TO BEGIN LOGIC CHECK
   document.onkeyup = function(event){
     key = event.key;
+    document.querySelector("#message").innerHTML = "Try and guess who my favorite artists were this year.<br/> Good luck!";
     var correct = 0;
 
     for (var i = 0; i < wordLength; i++) {
@@ -58,19 +63,22 @@
 
     if (correct == 0) {
       goesLeft--;
+      document.querySelector("#guessesLeft").innerHTML = goesLeft;
       lettersGuessed.push(key);
       document.querySelector("#lettersGuessedSpace").innerHTML = lettersGuessed;
     }
 
     if (placeholder == word) {
-      alert("You guessed the word correctly. You win!");
       wins++;
-      newGame();
+      document.querySelector("#message").innerHTML = "You win! You must have good music taste.<br/>Click the Restart Game button to play again!";
+      document.querySelector("#wins").innerHTML = wins;
+
     }
 
     if (goesLeft == 0) {
-      alert("You lose");
-      newGame();
+      losses++;
+      document.querySelector("#message").innerHTML = "Tough break, but you should check out the music anyway.<br/>Click the Restart Game button to play again!";
+      document.querySelector("#losses").innerHTML = losses;
     }
 
   }
