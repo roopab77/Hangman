@@ -1,7 +1,12 @@
- 
+    var artists = [];
+      artists[0] = {name: "kaytranada", youtube: "https://www.youtube.com/embed/rKlA5tRu6f0?rel=0"};
+      artists[1] = {name: "hotelier", youtube: "https://www.youtube.com/embed/AuEMMawhMZU?rel=0"};
+      artists[2] = {name: "american football", youtube: "https://www.youtube.com/embed/-9f4dP6jw1Q?rel=0"};
+      artists[3] = {name: "a tribe called quest", youtube: "https://www.youtube.com/embed/BDxKVYUHBdA?rel=0"};
+      artists[4] = {name: "rufus du sol", youtube: "https://www.youtube.com/embed/Tx9zMFodNtA?rel=0"};
 
  // DECLARE VARIABLES NEEDED FOR GAME
-    var wordsArray = ['kaytranada','hotelier','american football','restorations', 'a tribe called quest', 'rufus du sol'];
+    // var wordsArray = ['kaytranada','hotelier','american football','restorations', 'a tribe called quest', 'rufus du sol'];
     var word;
     var wins = 0;
     var losses = 0;
@@ -19,7 +24,11 @@
       placeholder = "";
       goesLeft = 10;
       lettersGuessed = [];
-      word = wordsArray[Math.floor(Math.random() * wordsArray.length)];
+      var randomArtist = Math.floor(Math.random() * artists.length); 
+      var pickedArtist = artists.splice(randomArtist, 1);
+      word =  pickedArtist[0].name;
+      console.log(word); 
+      // word = wordsArray[Math.floor(Math.random() * wordsArray.length)];
 
       wordLength = word.length;
       wordSubstring = word.substring;
