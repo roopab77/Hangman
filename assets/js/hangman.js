@@ -76,7 +76,6 @@
       document.querySelector("#message").innerHTML = "Try and guess who my favorite artists are this year.<br/> Press any key to get started!";
       document.querySelector("#guessesLeft").innerHTML = goesLeft;
       document.querySelector("#name").innerHTML = " ";
-      
       document.querySelector("#spotify").innerHTML = "";
 
     }
@@ -134,5 +133,5 @@
     }
 
   }
-
+  // RUN NEW GAME ON BUTTON CLICK
   document.querySelector("#button").addEventListener("click", newGame);
